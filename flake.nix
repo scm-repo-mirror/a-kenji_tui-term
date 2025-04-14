@@ -8,9 +8,9 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  inputs.crane = {
-    url = "github:ipetkov/crane";
-  };
+  inputs.crane.url = "github:ipetkov/crane";
+
+  inputs.flake-parts.url = "github:hercules-ci/flake-parts";
 
   outputs = {
     self,
@@ -18,6 +18,7 @@
     flake-utils,
     rust-overlay,
     crane,
+    ...
   }:
     flake-utils.lib.eachDefaultSystem (
       system: let
